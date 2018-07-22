@@ -67,13 +67,13 @@
     <script type="text/javascript" src="../www/js/bundle.js"></script>
     <script>    
             var enableOffline = false;
-        
+        /*
             if(navigator.onLine)
                 enableOffline = true;
             }else{
                 enableOffline = false;
             }
-
+*/
 			window.openAllLinksWithBlankTargetInSystemBrowser = function() {
 			    if ( typeof cordova === "undefined" || !cordova.InAppBrowser ) {
 			        throw new Error("You are trying to run this code for a non-cordova project, " +
