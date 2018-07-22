@@ -1,5 +1,5 @@
 {
-  "url": "https://dscalculator.mxapps.io",
+  "url": "http://192.168.1.10:8080",
   "enableOffline": true,
   "requirePin": false,
   "updateAsync": false,
