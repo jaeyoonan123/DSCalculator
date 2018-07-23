@@ -1,150 +1,139 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-	<widget xmlns = "http://www.w3.org/ns/widgets"
-		xmlns:gap = "http://phonegap.com/ns/1.0"
-		xmlns:android="http://schemas.android.com/apk/res/android"
-		id        = "com.mendixcloud.adpinnovation3"
-		version   = "1.0.1" >
+<widget xmlns = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "io.mxapps.dscalculator"
+        version   = "0.0.6" >
 
-	<name>WrksavvyLocal</name>
+    <name>DS Calculator</name>
 
-	<description></description>
+    <description></description>
 
-	<!--
-	Current latest and default version
-	Platform versions don't follow a common version number anymore
-	(see: http://phonegap.com/blog/2015/06/16/phonegap-updated-on-build/).
-	Instead, Phonegap Build derives the platform versions from the CLI
-	defaults.
-	-->
-	<preference name="phonegap-version" value="cli-5.2.0" />
+    <!--
+    Current latest and default version
+    Platform versions don't follow a common version number anymore
+    (see: http://phonegap.com/blog/2015/06/16/phonegap-updated-on-build/).
+    Instead, Phonegap Build derives the platform versions from the CLI
+    defaults.
+    -->
+    <preference name="phonegap-version" value="cli-7.1.0" />
 
-	<!--
-	On iOS, the statusbar is transparent by default and is drawn over the top
-	of our app.
-	-->
-	<preference name="StatusBarOverlaysWebView" value="false" />
-	<preference name="StatusBarBackgroundColor" value="#5596e6" />
+    <!-- allow assets to be loaded and open links in the app itself, see: http://phonegap.com/blog/2012/03/20/access-tags/ -->
+    <!-- Issue 204079: Allow retrieval of any resource. Custom widgets can point to anything. -->
+    <access origin="*" />
 
-	<!--
-	Set proper defaults for `cordova.file.dataDirectory`.
-	-->
-	<preference name="AndroidPersistentFileLocation" value="Internal" />
-	<preference name="iosPersistentFileLocation" value="Library" />
+    <!-- Force the default architecture for Android to ARM -->
+    <plugin name="com.darktalker.cordova.screenshot" source="npm" spec="0.1.6" />
+    <plugin name="com.telerik.plugins.nativepagetransitions" source="npm" spec="0.6.5" />
+    <plugin name="cordova-build-architecture" source="git" spec="https://github.com/MBuchalik/cordova-build-architecture.git#v1.0.3" />
+    <plugin name="cordova-plugin-actionsheet" source="npm" spec="2.3.3" />
+    <plugin name="cordova-plugin-android-permissions" source="npm" spec="0.10.0" />
+    <plugin name="cordova-plugin-app-version" source="npm" spec="0.1.8" />
+    <plugin name="cordova-plugin-battery-status" source="npm" spec="1.1.2" />
+    <plugin name="cordova-plugin-cookieemperor" spec="https://github.com/rtk/cordova-cookie-emperor.git" />
+    <plugin name="cordova-plugin-device" source="npm" spec="1.1.2" />
+    <plugin name="cordova-plugin-device-motion" source="npm" spec="1.2.1" />
+    <plugin name="cordova-plugin-device-orientation" source="npm" spec="1.0.3" />
+    <plugin name="cordova-plugin-dialogs" source="npm" spec="1.2.1" />
+    <plugin name="cordova-plugin-file" source="npm" spec="4.2.0" />
+    <plugin name="cordova-plugin-file-transfer" source="npm" spec="1.5.1" />
+    <plugin name="cordova-plugin-globalization" source="npm" spec="1.0.3" />
+    <plugin name="cordova-plugin-inappbrowser" source="npm" spec="1.4.0" />
+    <plugin name="cordova-plugin-network-information" source="npm" spec="1.2.1" />
+    <plugin name="cordova-plugin-secure-storage" source="npm" spec="2.4.0" />
+    <plugin name="cordova-plugin-spinner" source="npm" spec="1.1.0" />
+    <plugin name="cordova-plugin-splashscreen" source="npm" spec="4.1.0" />
+    <plugin name="cordova-plugin-statusbar" source="npm" spec="2.3.0" />
+    <plugin name="cordova-plugin-vibration" source="npm" spec="2.1.1" />
+    <plugin name="cordova-plugin-x-socialsharing" source="npm" version="5.0.11"/>
+    <plugin name="cordova-plugin-zip" source="npm" spec="3.1.0" />
+    <plugin name="cordova-plugin-whitelist" source="npm" spec="1.2.2" />
+    <plugin name="cordova-sqlite-storage-pgb" source="git" spec="https://github.com/mendix/Cordova-sqlite-storage-pgb.git#storage-master" />
+    <plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" source="npm" version="2.9.11"/>
 
-	<!--
-	Disable backup to iCloud on iOS.
-	-->
-	<preference name="BackupWebStorage" value="none" />
+        <plugin name="cordova-plugin-calendar" source="npm" spec="4.5.5">
+            <param name="CALENDAR_USAGE_DESCRIPTION" value="This app needs to access your calendar" />
+        </plugin>
 
-	<!-- need some build tool preference for Android to make sure notifications work -->
-	<preference name="android-build-tool" value="gradle" />
-	<!--
-	Don't hide the splash screen automatically. Instead, wait until we have content available. This requires that we unload the splash screen using custom code or a widget.
-	-->
-	<preference name="AutoHideSplashScreen" value="true" />
-	<preference name="SplashMaintainAspectRatio" value="true" />
-	<preference name="FadeSplashScreenDuration" value="250"/>
-	<preference name="ShowSplashScreenSpinner" value="false"/>
-	<preference name="SplashScreenDelay" value="300"/>
-	<!-- Android splash screen isn't showing -->
-	<preference name="SplashScreen" value="screen" />
-	<preference name="KeepRunning" value="true"/>
+            <plugin name="cordova-plugin-camera" source="npm" spec="2.4.0">
+                <param name="CAMERA_USAGE_DESCRIPTION" value="This app needs to access your camera" />
+                <param name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="This app needs to access your photo library" />
+            </plugin>
 
-	<!-- Let's stick with portrait view. -->
-	<preference name="orientation" value="portrait" />
+        <plugin name="cordova-plugin-contacts" source="npm" spec="2.3.0">
+            <param name="CONTACTS_USAGE_DESCRIPTION" value="This app needs to access your contacts" />
+        </plugin>
 
-	<!-- Stop the app from overscrolling and looking all bouncy -->
-	<preference name="DisallowOverscroll" value="true" />
-	<feature name="CDVWKWebViewEngine">      <param name="ios-package" value="CDVWKWebViewEngine" /> </feature>
+                <plugin name="cordova-plugin-media-capture" source="npm" spec="1.4.2">
+                    <param name="CAMERA_USAGE_DESCRIPTION" value="This app needs to access your camera" />
+                    <param name="MICROPHONE_USAGE_DESCRIPTION" value="This app needs to access your microphone" />
+                    <param name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="This app needs to access your photo library" />
+                </plugin>
 
-	<!-- allow assets to be loaded and open links in the app itself, see: http://phonegap.com/blog/2012/03/20/access-tags/ -->
-	<!-- Issue 204079: Allow retrieval of any resource. Custom widgets can point to anything. -->
-	<access origin="*" />
+        <plugin name="phonegap-plugin-barcodescanner" source="npm" spec="8.0.0" >
+            <param name="CAMERA_USAGE_DESCRIPTION" value="This app needs to access your camera" />
+        </plugin>
 
-	<gap:plugin name="cordova-plugin-battery-status" source="npm" version="1.1.2" />
-	<gap:plugin name="cordova-plugin-camera" source="npm" version="2.2.0" />
-	<gap:plugin name="cordova-plugin-console" source="npm" version="1.0.3" />
-	<gap:plugin name="cordova-plugin-contacts" source="npm" version="2.1.0" />
-	<gap:plugin name="cordova-plugin-device" source="npm" version="1.1.2" />
-	<gap:plugin name="cordova-plugin-device-motion" source="npm" version="1.2.1" />
-	<!--<gap:plugin name="cordova-plugin-device-orientation" source="npm" version="1.0.1" />-->
-	<gap:plugin name="cordova-plugin-dialogs" source="npm" version="1.2.1" />
-	<gap:plugin name="cordova-plugin-file" source="npm" version="4.2.0" />
-	<!--<gap:plugin name="cordova-plugin-geolocation" source="npm" version="2.2.0" />-->
-	<gap:plugin name="cordova-plugin-globalization" source="npm" version="1.0.3" />
-	<gap:plugin name="cordova-plugin-inappbrowser" source="npm" version="1.4.0" />
-	<gap:plugin name="cordova-plugin-media-capture" source="npm" version="1.3.0" />
-	<gap:plugin name="cordova-plugin-media" source="npm" version="2.3.0" />
-	<!--<gap:plugin name="cordova-plugin-network-information" source="npm" version="1.2.1" />-->
-	<gap:plugin name="cordova-plugin-splashscreen" source="npm" version="3.2.2" />
-	<gap:plugin name="cordova-plugin-statusbar" source="npm" version="2.1.3" />
-	<!--<gap:plugin name="cordova-plugin-vibration" source="npm" version="2.1.1" />-->
-	<!--<gap:plugin name="cordova-plugin-zip" source="npm" version="3.1.0" />-->
-	<gap:plugin name="cordova-plugin-whitelist" source="npm" version="1.2.2" />
-	<!--<gap:plugin name="phonegap-plugin-barcodescanner" source="npm" version="3.0.0" />-->
+        <plugin name="cordova-plugin-geolocation" source="npm" spec="2.2.0">
+            <param name="GEOLOCATION_USAGE_DESCRIPTION" value="This app needs to access your location" />
+        </plugin>
 
-	<gap:plugin name="com.telerik.plugins.nativepagetransitions" source="npm" />
-	<gap:plugin name="cordova-plugin-spinnerdialog" source="npm" />
-	<gap:plugin name="cordova-plugin-touch-id" source="npm"/>
-	<gap:plugin name="cordova-plugin-pin-dialog-et" source="npm"/>
-	<gap:plugin name="cordova-plugin-actionsheet" source="npm" />
-	<gap:plugin name="cordova-plugin-wkwebview-engine-nextgen" source="npm" version="1.0.1" />
+        <plugin name="cordova-plugin-media" source="npm" spec="2.3.0" />
 
-	<!--Too hard to paste data <gap:plugin name="cordova-plugin-ios-longpress-fix" source="npm" />-->
-	<gap:plugin name="phonegap-plugin-push" source="npm" version="1.5.3" />
-
-	<gap:platform name="ios" />
-
-	<!--
-	<gap:splash src="res/ios/Default@2x.png" gap:platform="ios" width="640" height="960" />
-	<gap:splash src="res/ios/Default-Portrait.png" gap:platform="ios" width="768" height="1024" />
-	<gap:splash src="res/ios/Default-Landscape@2x.png" gap:platform="ios" width="2048" height="1536" />
-	<gap:splash src="res/ios/Default-Portrait@2x.png" gap:platform="ios" width="1536" height="2048" />
-	<gap:splash src="res/ios/Default-568h@2x.png" gap:platform="ios" width="640" height="1136" />
-	<gap:splash src="res/ios/Default-Landscape.png" gap:platform="ios" width="1024" height="768" />
-	<gap:splash src="res/ios/Default.png" gap:platform="ios" width="320" height="480" />
-	-->
-
-	<gap:splash src="res/ios/iphone_portrait_5_@2x.png" gap:platform="ios" width="640" height="1136" />
-	<gap:splash src="res/ios/iphone_portrait_6_@2x.png" gap:platform="ios" width="750" height="1334" />
-	<gap:splash src="res/ios/iphone_portrait_6p_@3x.png" gap:platform="ios" width="1242" height="2208" />
+        <plugin name="phonegap-plugin-push" source="npm" spec="1.5.3" />
 
 
-	<icon src="res/ios/Icon.png" gap:platform="ios" width="57" height="57" />
-	<icon src="res/ios/Icon@2x.png" gap:platform="ios" width="114" height="114" />
-	<icon src="res/ios/Icon-60.png" gap:platform="ios" width="60" height="60" />
-	<icon src="res/ios/Icon-72.png" gap:platform="ios" width="72" height="72" />
-	<icon src="res/ios/Icon-72@2x.png" gap:platform="ios" width="144" height="144" />
-	<icon src="res/ios/Icon-Small-50.png" gap:platform="ios" width="50" height="50" />
-	<icon src="res/ios/Icon-Small-50@2x.png" gap:platform="ios" width="100" height="100" />
+        <!-- The gradle build tool is required for the phonegap-plugin-push -->
+        <preference name="android-build-tool" value="gradle" />
 
-	<!-- iPhone 6 -->
-	<gap:splash src="res/ios/Default-667h@2x.png" platform="ios" width="750" height="1334" />
-	<gap:splash src="res/ios/Default-Portrait-736h@3x.png" platform="ios" width="1242" height="2208" />
 
-	<gap:platform name="android" />
+        <plugin name="cordova-plugin-whitelist" source="npm" spec="1.2.2" />
+        <plugin name="cordova-plugin-android-permissions" source="npm" version="0.10.0" />
 
-	<!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
-	<gap:splash src="res/android/land-ldpi.png" gap:platform="android" gap:density="land-ldpi"/>
-	<gap:splash src="res/android/land-hdpi.png" gap:platform="android" gap:density="land-hdpi"/>
-	<gap:splash src="res/android/land-xhdpi.png" gap:platform="android" gap:density="land-xhdpi"/>
-	<gap:splash src="res/android/land-mdpi.png" gap:platform="android" gap:density="land-mdpi"/>
-	<gap:splash src="res/android/port-ldpi.png" gap:platform="android" gap:density="ldpi"/>
-	<gap:splash src="res/android/port-mdpi.png" gap:platform="android" gap:density="mdpi"/>
-	<gap:splash src="res/android/port-xhdpi.png" gap:platform="android" gap:density="xhdpi"/>
-	<gap:splash src="res/android/port-hdpi.png" gap:platform="android" gap:density="hdpi"/>
+        <preference name="android-minSdkVersion" value="19" />
 
-	<icon src="res/android/ldpi.png" gap:platform="android" gap:density="ldpi"/>
-	<icon src="res/android/xxhdpi.png" gap:platform="android" gap:density="xxhdpi"/>
-	<icon src="res/android/hdpi.png" gap:platform="android" gap:density="hdpi"/>
-	<icon src="res/android/xhdpi.png" gap:platform="android" gap:density="xhdpi"/>
-	<icon src="res/android/mdpi.png" gap:platform="android" gap:density="mdpi"/>
+        <preference name="android-targetSdkVersion" value="27" />
 
-	<gap:plugin name="cordova-plugin-file-transfer" source="npm" version="1.2.0" />
-	<gap:plugin name="cordova-sqlite-storage" source="npm" version="0.7.10" />
 
-	<!-- Enable Android debugging -->
-	<gap:config-file platform="android" parent="/manifest">
-		<application android:debuggable="true" />
-	</gap:config-file>
+        <platform name="android">
+                <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
+                    <splash src="res/android/screen-ldpi-portrait.png" density="port-ldpi"/>
+                <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
+                    <icon src="res/android/icon-36-ldpi.png" density="ldpi"/>
+                <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
+                    <icon src="res/android/icon-96-xhdpi.png" density="xhdpi"/>
+                <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
+                    <icon src="res/android/icon-72-hdpi.png" density="hdpi"/>
+                <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
+                    <splash src="res/android/screen-xxhdpi-landscape.png" density="land-xxhdpi"/>
+                <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
+                    <splash src="res/android/screen-xxxhdpi-landscape.png" density="land-xxxhdpi"/>
+                <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
+                    <splash src="res/android/screen-xxxhdpi-portrait.png" density="port-xxxhdpi"/>
+                <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
+                    <icon src="res/android/icon-144-xxhdpi.png" density="xxhdpi"/>
+                <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
+                    <splash src="res/android/screen-hdpi-landscape.png" density="land-hdpi"/>
+                <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
+                    <splash src="res/android/screen-mdpi-landscape.png" density="land-mdpi"/>
+                <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
+                    <splash src="res/android/screen-hdpi-portrait.png" density="port-hdpi"/>
+                <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
+                    <splash src="res/android/screen-ldpi-landscape.png" density="land-ldpi"/>
+                <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
+                    <splash src="res/android/screen-xxhdpi-portrait.png" density="port-xxhdpi"/>
+                <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
+                    <splash src="res/android/screen-mdpi-portrait.png" density="port-mdpi"/>
+                <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
+                    <splash src="res/android/screen-xhdpi-landscape.png" density="land-xhdpi"/>
+                <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
+                    <splash src="res/android/screen-xhdpi-portrait.png" density="port-xhdpi"/>
+                <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
+                    <icon src="res/android/icon-192-xxxhdpi.png" density="xxxhdpi"/>
+                <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
+                    <icon src="res/android/icon-48-mdpi.png" density="mdpi"/>
+        </platform>
+
+    <splash src="res/android/screen-xxxhdpi-portrait.png" />
+
+    
 </widget>
