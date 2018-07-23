@@ -112,6 +112,7 @@
 			window.startApp = function() {
 
 				document.addEventListener("deviceready", function() {
+                    alert("hi");
 					//if the splashscreen plugin exists, show it.
 					//if (navigator && navigator.splashscreen) {
 					//	navigator.splashscreen.show();
@@ -168,7 +169,7 @@
 						}
 					}
 				};
-				xhr.open("POST", "http://192.168.1.10:808q/login", true);
+				xhr.open("POST", "http://192.168.1.10:8081/login", true);
 				xhr.withCredentials = true;
 				xhr.send(params);
 			} else {
