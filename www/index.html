@@ -66,44 +66,5 @@
         <script src="cordova.js"></script>
     <script type="text/javascript" src="../www/js/bundle.js"></script></body>
     <script src="../www/js/jquery.min.js"></script>
-    <script>
-               var enableOffline = navigator.onLine;
 
-
-			window.startApp = function() {
-
-				document.addEventListener("deviceready", function() {
-					//if the splashscreen plugin exists, show it.
-					//if (navigator && navigator.splashscreen) {
-					//	navigator.splashscreen.show();
-					//}
-
-
-
-
-
-					window.openAllLinksWithBlankTargetInSystemBrowser();
-					// Make sure to include the scheme (e.g. http://) in the URL.
-					mxapp.initialize("http://192.168.1.10:8081/", enableOffline);
-
-
-
-
-
-
-
-				});
-
-
-
-			}
-
-
-
-    
-    
-    
-    
-    
-    </script>
 </html>
