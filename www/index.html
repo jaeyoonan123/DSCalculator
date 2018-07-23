@@ -68,7 +68,7 @@
     
         <script>
         
-                var enableOffline = navigator.onLine;
+                var enableOffline = navigator.onLine==false;
 
 			window.openAllLinksWithBlankTargetInSystemBrowser = function() {
 			    if ( typeof cordova === "undefined" || !cordova.InAppBrowser ) {
