@@ -2,7 +2,7 @@
 <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "io.mxapps.dscalculator"
-        version   = "0.0.6" >
+        version   = "0.0.8" >
 
     <name>DS Calculator</name>
 
@@ -81,6 +81,67 @@
 
         <plugin name="phonegap-plugin-push" source="npm" spec="1.5.3" />
 
+        <!-- On iOS, the statusbar is transparent by default and is drawn over the top of our app. -->
+        <preference name="StatusBarOverlaysWebView" value="false" />
+        <preference name="StatusBarBackgroundColor" value="#000000" />
+
+        <preference name="DisallowOverscroll" value="true" />
+
+        <preference name="webviewbounce" value="false" />
+
+        <!-- Set proper defaults for `cordova.file.dataDirectory`. -->
+        <preference name="iosPersistentFileLocation" value="Library" />
+
+        <!-- Set proper keyboard action for Apple device. -->
+        <preference name="KeyboardDisplayRequiresUserAction" value="false" />
+
+        <!-- Disable backup to iCloud on iOS. -->
+        <preference name="BackupWebStorage" value="none" />
+
+        <!-- Enable WKWebView on iOS -->
+        <feature name="CDVWKWebViewEngine">
+            <param name="ios-package" value="CDVWKWebViewEngine" />
+        </feature>
+
+        <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
+
+        <preference name="KeyboardDisplayRequiresUserAction" value="false" />
+
+        <plugin name="cordova-plugin-wkwebview-engine-nextgen" source="npm" spec="^1.1.0" />
+
+        <platform name="ios">
+                <icon src="res/ios/icon-76-2x.png" width="152" height="152" />
+                <splash src="res/ios/screen-iphone-landscape-2x.png" width="960" height="640" />
+                <icon src="res/ios/icon-small-3x.png" width="87" height="87" />
+                <icon src="res/ios/icon-83.5-2x.png" width="167" height="167" />
+                <icon src="res/ios/icon-72.png" width="72" height="72" />
+                <splash src="res/ios/screen-iphone-portrait.png" width="320" height="480" />
+                <icon src="res/ios/icon-small.png" width="29" height="29" />
+                <splash src="res/ios/screen-ipad-landscape.png" width="1024" height="768" />
+                <icon src="res/ios/icon-50-2x.png" width="100" height="100" />
+                <splash src="res/ios/screen-iphone-landscape-568h-2x.png" width="1136" height="640" />
+                <icon src="res/ios/icon-60.png" width="60" height="60" />
+                <icon src="res/ios/icon-40.png" width="40" height="40" />
+                <icon src="res/ios/icon-60-2x.png" width="120" height="120" />
+                <splash src="res/ios/screen-iphone-portrait-568h-2x.png" width="640" height="1136" />
+                <splash src="res/ios/screen-ipad-landscape-2x.png" width="2048" height="1536" />
+                <splash src="res/ios/screen-iphone-portrait-736h.png" width="1242" height="2208" />
+                <splash src="res/ios/screen-iphone-landscape-667h.png" width="1334" height="750" />
+                <splash src="res/ios/screen-iphone-landscape-736h.png" width="2208" height="1242" />
+                <icon src="res/ios/icon-76.png" width="76" height="76" />
+                <icon src="res/ios/icon-40-2x.png" width="80" height="80" />
+                <icon src="res/ios/icon-60-3x.png" width="180" height="180" />
+                <splash src="res/ios/screen-ipad-portrait-2x.png" width="1536" height="2048" />
+                <icon src="res/ios/icon.png" width="57" height="57" />
+                <icon src="res/ios/icon-small-2x.png" width="58" height="58" />
+                <splash src="res/ios/screen-ipad-portrait.png" width="768" height="1024" />
+                <icon src="res/ios/icon-72-2x.png" width="144" height="144" />
+                <splash src="res/ios/screen-iphone-landscape.png" width="480" height="320" />
+                <splash src="res/ios/screen-iphone-portrait-2x.png" width="640" height="960" />
+                <icon src="res/ios/icon-50.png" width="50" height="50" />
+                <splash src="res/ios/screen-iphone-portrait-667h.png" width="750" height="1334" />
+                <icon src="res/ios/icon-2x.png" width="114" height="114" />
+        </platform>
 
         <!-- The gradle build tool is required for the phonegap-plugin-push -->
         <preference name="android-build-tool" value="gradle" />
@@ -106,11 +167,21 @@
                 <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
                     <splash src="res/android/screen-xxhdpi-landscape.png" density="land-xxhdpi"/>
                 <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
+                    <splash src="res/android/screen-mdpi-portrait.png" density="port-mdpi"/>
+                <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
                     <splash src="res/android/screen-xxxhdpi-landscape.png" density="land-xxxhdpi"/>
                 <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
                     <splash src="res/android/screen-xxxhdpi-portrait.png" density="port-xxxhdpi"/>
                 <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
+                    <splash src="res/android/screen-xhdpi-landscape.png" density="land-xhdpi"/>
+                <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
+                    <splash src="res/android/screen-xhdpi-portrait.png" density="port-xhdpi"/>
+                <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
+                    <icon src="res/android/icon-192-xxxhdpi.png" density="xxxhdpi"/>
+                <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
                     <icon src="res/android/icon-144-xxhdpi.png" density="xxhdpi"/>
+                <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
+                    <icon src="res/android/icon-48-mdpi.png" density="mdpi"/>
                 <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
                     <splash src="res/android/screen-hdpi-landscape.png" density="land-hdpi"/>
                 <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
@@ -121,16 +192,6 @@
                     <splash src="res/android/screen-ldpi-landscape.png" density="land-ldpi"/>
                 <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
                     <splash src="res/android/screen-xxhdpi-portrait.png" density="port-xxhdpi"/>
-                <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
-                    <splash src="res/android/screen-mdpi-portrait.png" density="port-mdpi"/>
-                <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
-                    <splash src="res/android/screen-xhdpi-landscape.png" density="land-xhdpi"/>
-                <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
-                    <splash src="res/android/screen-xhdpi-portrait.png" density="port-xhdpi"/>
-                <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
-                    <icon src="res/android/icon-192-xxxhdpi.png" density="xxxhdpi"/>
-                <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
-                    <icon src="res/android/icon-48-mdpi.png" density="mdpi"/>
         </platform>
 
     <splash src="res/android/screen-xxxhdpi-portrait.png" />
